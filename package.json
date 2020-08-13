@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "analyze": "source-map-explorer 'examples/*.js'",
+    "build": "npx webpack"
   },
   "keywords": [],
   "author": "Xiaoxi",
@@ -13,7 +15,8 @@
   "devDependencies": {
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "source-map-explorer": "^2.4.2"
   },
   "dependencies": {
     "highcharts": "^8.1.2",

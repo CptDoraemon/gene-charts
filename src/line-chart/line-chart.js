@@ -1,4 +1,4 @@
-import Highcharts from 'highcharts';
+import Highcharts from 'highcharts/highcharts';
 import data from 'highcharts/modules/data';
 import Exporting from 'highcharts/modules/exporting';
 import _ from 'lodash';
@@ -10,6 +10,7 @@ const convertJsonToRowData = (json) => {
     const rowData = [];
 
     /*
+        data format
         data: {
             rows: [
                 [null, 'Ola', 'Kari'], // series names
@@ -56,12 +57,6 @@ const lineChart = (elementId, data) => {
             x: 40
         },
 
-        subtitle: {
-            // text: 'Temperature variation by day and hour through 2017',
-            // align: 'left',
-            // x: 40
-        },
-
         xAxis: {
             type: 'category',
         },
@@ -73,26 +68,9 @@ const lineChart = (elementId, data) => {
             },
         },
 
-        labels: {
-            style: {
-                // color: "black",
-                // fontSize: '16px',
-                // fontWeight: 'normal',
-                // position: "absolute",
-                // bottom: '0px'
-            },
-            items: [{
-                // html: "<b>NP</b>: Normal person; <b> CHD</b>: Coronary heart disease; <b>CRC</b>: Colorectal cancer; <b>HCC</b>: Hepatocellular carcinoma; <br>" +
-                //     "<b>PAAD</b>:Pancreatic adenocarcinoma; <b>WhB</b>: Whole blood.",
-                style: {
-                    // textAlign: 'center',
-                    // position: "absolute",
-                    // bottom: 0
-
-                },
-            }],
-
-        },
+        tooltip: {
+            useHTML: true,
+        }
 
     });
 };

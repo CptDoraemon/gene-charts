@@ -1,4 +1,4 @@
-import Highcharts from 'highcharts';
+import Highcharts from 'highcharts/highcharts';
 import Heatmap from 'highcharts/modules/heatmap.js';
 import Annotations from 'highcharts/modules/annotations';
 import Exporting from 'highcharts/modules/exporting';
@@ -34,22 +34,12 @@ const heatMap = (elementId, data) => {
     _heatMap(elementId, xCategories, yCategories, seriesData);
 };
 
-function getPointCategoryName(point, dimension) {
-    var series = point.series,
-        isY = dimension === 'y',
-        axis = series[isY ? 'yAxis' : 'xAxis'];
-    return axis.categories[point[isY ? 'y' : 'x']];
-}
-
 const _heatMap = (elementId, xCategories, yCategories, seriesData) => {
 
     Highcharts.chart(elementId, {
 
         chart: {
             type: 'heatmap',
-            marginTop: 40,
-            marginBottom: 120,
-            plotBorderWidth: 0
         },
 
         title: {
@@ -67,18 +57,6 @@ const _heatMap = (elementId, xCategories, yCategories, seriesData) => {
             title: null,
         },
 
-        // accessibility: {
-        //     point: {
-        //         descriptionFormatter: function (point) {
-        //             var ix = point.index + 1,
-        //                 xName = getPointCategoryName(point, 'x'),
-        //                 yName = getPointCategoryName(point, 'y'),
-        //                 val = point.value;
-        //             return ix + '. ' + xName + ' sales ' + yName + ', ' + val + '.';
-        //         }
-        //     }
-        // },
-
         colorAxis: {
             stops: [
                 [0.1, '#78b8ed'],
@@ -92,13 +70,11 @@ const _heatMap = (elementId, xCategories, yCategories, seriesData) => {
         legend: {
             align: 'right',
             layout: 'vertical',
-            margin: 10,
             verticalAlign: 'top',
             y: 24,
-            symbolHeight: 240,
-            // title: {
-            //     text: 'TPM(log2+1)'
-            // }
+            title: {
+                text: 'TPM(log2+1)',
+            }
         },
 
         tooltip: {
@@ -132,23 +108,6 @@ const _heatMap = (elementId, xCategories, yCategories, seriesData) => {
             useHTML: true,
             align: 'center',
         },
-
-        // responsive: {
-        //     rules: [{
-        //         condition: {
-        //             maxWidth: 500
-        //         },
-        //         chartOptions: {
-        //             yAxis: {
-        //                 labels: {
-        //                     formatter: function () {
-        //                         return this.value.charAt(0);
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }]
-        // }
 
     });
 };
