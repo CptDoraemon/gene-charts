@@ -1,5 +1,6 @@
 {
   "name": "gene-charts",
+  "sideEffects": false,
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -13,13 +14,13 @@
   "author": "Xiaoxi",
   "license": "ISC",
   "devDependencies": {
+    "source-map-explorer": "^2.4.2",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "source-map-explorer": "^2.4.2"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "highcharts": "^8.1.2",
-    "lodash": "^4.17.19"
+    "lodash-es": "^4.17.15"
   }
 }

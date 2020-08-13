@@ -1,12 +1,12 @@
-import Highcharts from 'highcharts/highcharts';
-import Heatmap from 'highcharts/modules/heatmap.js';
-import Annotations from 'highcharts/modules/annotations';
-import Exporting from 'highcharts/modules/exporting';
-import _ from 'lodash';
+import Highcharts from 'highcharts/es-modules/masters/highcharts.src';
+import 'highcharts/es-modules/masters/modules/heatmap.src';
+import 'highcharts/es-modules/masters/modules/annotations.src';
+import 'highcharts/es-modules/modules/exporting.src';
+import {cloneDeep} from 'lodash-es';
 
-Heatmap(Highcharts);
-Annotations(Highcharts);
-Exporting(Highcharts);
+// Heatmap(Highcharts);
+// Annotations(Highcharts);
+// Exporting(Highcharts);
 
 /**
  * Convert data to fit _heatMap
@@ -89,7 +89,7 @@ const _heatMap = (elementId, xCategories, yCategories, seriesData) => {
 
         series: [{
             borderWidth: 0,
-            data: _.cloneDeep(seriesData),
+            data: cloneDeep(seriesData),
             dataLabels: {
                 enabled: false,
             },

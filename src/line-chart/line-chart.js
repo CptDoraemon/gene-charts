@@ -1,10 +1,7 @@
-import Highcharts from 'highcharts/highcharts';
-import data from 'highcharts/modules/data';
-import Exporting from 'highcharts/modules/exporting';
-import _ from 'lodash';
-
-data(Highcharts);
-Exporting(Highcharts);
+import Highcharts from 'highcharts/es-modules/masters/highcharts.src';
+import 'highcharts/es-modules/modules/data.src';
+import 'highcharts/es-modules/modules/exporting.src';
+import {cloneDeep} from 'lodash-es';
 
 const convertJsonToRowData = (json) => {
     const rowData = [];
@@ -38,7 +35,7 @@ const convertJsonToRowData = (json) => {
 };
 
 const lineChart = (elementId, data) => {
-    const _data = _.cloneDeep(data);
+    const _data = cloneDeep(data);
     const _rowData = convertJsonToRowData(_data);
 
     Highcharts.chart(elementId, {
