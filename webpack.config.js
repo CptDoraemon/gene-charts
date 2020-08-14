@@ -7,13 +7,24 @@ module.exports = {
         path.resolve(__dirname, 'src/index.js'),
     ],
     output: {
-        filename: '[name].[contenthash].bundle.js',
-        chunkFilename: '[name].[contenthash].chunk.js',
+        filename: '[name].[contenthash:8].bundle.js',
+        chunkFilename: '[name].[contenthash:8].chunk.js',
         path: path.resolve(__dirname, 'examples'),
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Gene Charts',
+            template: path.resolve(__dirname, 'public/index.html'),
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
         }),
         new CleanWebpackPlugin(),
     ],
